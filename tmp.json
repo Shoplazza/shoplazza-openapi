@@ -1,0 +1,620 @@
+{
+  "openapi": "3.1.0",
+  "info": { "title": "SPZ Admin API", "version": "2022.01" },
+  "servers": [
+    {
+      "url": "https://{subdomain}.myshoplaza.com",
+      "variables": { "subdomain": { "default": "developer" } }
+    }
+  ],
+  "x-standalone-page": {
+    "title": "Standalone Page",
+    "content": "Information that should be on a standalone page..."
+  },
+  "tags": [
+    {
+      "name": "Order",
+      "description": ""
+    },
+    {
+      "name": "Fullfillment",
+      "description": ""
+    },
+    {
+      "name": "Order Risk",
+      "description": ""
+    },
+    {
+      "name": "Product",
+      "description": ""
+    },
+    {
+      "name": "Customer",
+      "description": ""
+    },
+    {
+      "name": "Webhook",
+      "description": ""
+    },
+    {
+      "name": "Online Store",
+      "description": ""
+    },
+    {
+      "name": "Shop",
+      "description": ""
+    },
+    {
+      "name": "App Proxy",
+      "description": ""
+    },
+    {
+      "name": "Discounts",
+      "description": ""
+    },
+    {
+      "name": "Gift Cards",
+      "description": ""
+    },
+    {
+      "name": "Product Metafields",
+      "description": ""
+    },
+    {
+      "name": "Redirect",
+      "description": ""
+    },
+    {
+      "name": "Data",
+      "description": ""
+    },
+    {
+      "name": "Theme",
+      "description": ""
+    },
+    {
+      "name": "Access",
+      "description": ""
+    },
+    {
+      "name": "Custom Area",
+      "description": ""
+    },
+    {
+      "name": "Billing API",
+      "description": ""
+    },
+    {
+      "name": "Metafield",
+      "description": ""
+    },
+    {
+      "name": "Meta Definition",
+      "description": ""
+    },
+    {
+      "name": "Page",
+      "description": ""
+    },
+    {
+      "name": "File",
+      "description": "Upload image materials to the material library and the material library operations of material"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "sec0": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "access-token",
+        "x-default": "WPMSdB6M8Cpum4X1GoMYOKZpiESd8d2x7dZW8d79ZeQ"
+      }
+    }
+  },
+  "security": [{ "sec0": [] }],
+  "paths": {
+    "/openapi/2022-01/orders/after_sales_list": {
+      "get": {
+        "tags": ["Order"],
+        "summary": "After Sales List",
+        "description": "",
+        "operationId": "after-sales-list",
+        "parameters": [
+          {
+            "name": "status",
+            "in": "query",
+            "description": "",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "Limit per page",
+            "schema": { "type": "integer", "format": "int32" }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number",
+            "schema": { "type": "integer", "format": "int32" }
+          },
+          {
+            "name": "created_at_start",
+            "in": "query",
+            "description": "Filter orders created after the date, for example: `2016-01-18T23:41:00Z`",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "created_at_end",
+            "in": "query",
+            "description": "Filter orders created before the date, for example: `2016-01-18T23:41:00Z`",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{\n          \"count\":  2,\n          \"pending_count\":  0,\n          \"processing_count\":  1,\n          \"post_sales\":  [\n                    {\n                              \"browser_ip\":  \"xxx.xx.xxx.xxx\",\n                              \"created_at\":  \"2023-11-14T02:44:42Z\",\n                              \"credit_card_number\":  \"0000\",\n                              \"currency_code\":  \"USD\",\n                              \"customer_name\":  \"Ryan\",\n                              \"device\":  \"PC\",\n                              \"discount_code\":  \"\",\n                              \"financial_status\":  \"refunded\",\n                              \"fulfillment_status\":  \"shipped\",\n                              \"fulfillments\":  [\n                                        {\n                                                  \"tracking_number\":  \"11111\"\n                                        }\n                              ],\n                              \"id\":  \"1ed0d8b9-8f6b-4cd1-9462-4b3d73ef1111\",\n                              \"line_items\":  [\n                                        {\n                                                  \"compare_at_price\":  \"0.00\",\n                                                  \"fulfillment_status\":  \"shipped\",\n                                                  \"fulfillment\":  [\n                                                            {\n                                                                      \"tracking_number\":  \"11111\",\n                                                                      \"created_at\":  \"2023-11-14T02:42:24Z\",\n                                                                      \"tracking_company\":  \"YANWXX\"\n                                                            }\n                                                  ],\n                                                  \"id\":  \"6774996e-08d5-47d6-b36d-ef6b2ab8fd11\",\n                                                  \"image\":  {\n                                                            \"alt\":  \"\",\n                                                            \"height\":  500,\n                                                            \"path\":  \"5afc43776cce3b4cab7cexxxxxxx.jpeg\",\n                                                            \"src\":  \"//cdn.test.shoplazza.com/5afc43776cce3b4cab7cexxxxxxx.jpeg\",\n                                                            \"width\":  500\n                                                  },\n                                                  \"note\":  \"\",\n                                                  \"options\":  [\n\n                                                  ],\n                                                  \"price\":  \"20.00\",\n                                                  \"product_handle\":  \"maternity-rainbow-stripe-skinny-bodycon-dress_50200\",\n                                                  \"product_id\":  \"832c6d34-b225-41dc-aa48-c8f23e69dbxx\",\n                                                  \"product_tags\":  [\n                                                            \"123\",\n                                                            \"11112\"\n                                                  ],\n                                                  \"product_title\":  \"Jabra Move Wireless Stereo Headphones\",\n                                                  \"properties\":  \"\",\n                                                  \"quantity\":  1,\n                                                  \"refund_discount\":  \"0.00\",\n                                                  \"refund_price\":  \"20.00\",\n                                                  \"refund_quantity\":  0,\n                                                  \"refund_tax\":  \"0.00\",\n                                                  \"refund_total\":  \"0.00\",\n                                                  \"requires_shipping\":  true,\n                                                  \"sku\":  \"\",\n                                                  \"spu\":  \"\",\n                                                  \"taxable\":  true,\n                                                  \"total\":  \"20.00\",\n                                                  \"variant_id\":  \"81dbbcc5-35a2-47fa-a194-39c9d578fc11\",\n                                                  \"variant_title\":  \"\",\n                                                  \"vendor\":  \"Amazon\",\n                                                  \"weight\":  \"0.00\",\n                                                  \"weight_unit\":  \"kg\",\n                                                  \"vendor_url\":  \"https://www.amazon.com/Jabra-Move-Wireless-Stereo-Headphones/dp/B00MR8Z28S/ref=br_asw_pdt-2?pf_rd_m=ATVPDKIKX0DER&pf_rd_s=&pf_rd_r=8NAPN9R973J85P2KDXXX&pf_rd_t=36701&pf_rd_p=a08731ea-e1c2-4f7f-a56e-e1569a96c211&pf_rd_i=desktop\",\n                                                  \"oversold_quantity\":  0,\n                                                  \"main_currency_prices\":  {\n                                                            \"compare_at_price\":  \"0\",\n                                                            \"price\":  \"20\",\n                                                            \"total\":  \"20\",\n                                                            \"actual_rate\":  \"1\"\n                                                  }\n                                        }\n                              ],\n                              \"number\":  \"00000059-S1\",\n                              \"order_number\":  \"00000059\",\n                              \"order_total\":  \"20.00\",\n                              \"payment_method\":  \"bogus_gateway\",\n                              \"recipient_name\":  \"sisid dd\",\n                              \"sales_platform\":  \"shoplazza\",\n                              \"shipping_address_extra_info\":  {\n\n                              },\n                              \"shipping_country\":  \"Anguilla\",\n                              \"shipping_email\":  \"137770xxxx@qq.com\",\n                              \"shipping_line_name\":  \"1\",\n                              \"shipping_phone\":  \"\",\n                              \"source\":  \"https://test.dev.myshoplaza.com/\",\n                              \"source_name\":  \"{\\\"created_at\\\":\\\"2023-10-16T07:43:25Z\\\",\\\"data\\\":\\\"Direct\\\"}\",\n                              \"placed_at\":  \"2023-11-14T02:18:06Z\",\n                              \"refund_amount\":  \"20.00\",\n                              \"post_sale_note\":  \"\",\n                              \"last_referrer_show\":  \"{\\\"created_at\\\":\\\"2023-11-14T02:16:47Z\\\",\\\"data\\\":\\\"Direct\\\"}\",\n                              \"last_landing_url\":  \"https://test.dev.myshoplaza.com/products/maternity-rainbow-stripe-skinny-bodycon-dress_50211?st=\",\n                              \"shipping_line_desc\":  \"\",\n                              \"delivery_method\":  1,\n                              \"shipping_tax_total\":  \"0.00\",\n                              \"shipping_tax_type\":  0,\n                              \"all_tax_total\":  \"0.00\",\n                              \"shop_name\":  \"\",\n                              \"staff_contact\":  \"\"\n                    }\n          ]\n}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "count": {
+                      "type": "integer"
+                    },
+                    "pending_count": {
+                      "type": "integer"
+                    },
+                    "processing_count":{
+                      "type": "integer"
+                    },
+                    "post_sales": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "browser_ip": {
+                            "type": "string",
+                            "description": "Browser IP"
+                          },
+                          "created_at": {
+                            "type": "string",
+                            "description": "Creation time"
+                          },
+                          "credit_card_number": {
+                            "type": "string",
+                            "description": "Last four digits of card number"
+                          },
+                          "currency_code": {
+                            "type": "string",
+                            "description": "Currency sign"
+                          },
+                          "customer_name": {
+                            "type": "string",
+                            "description": "Customer name"
+                          },
+                          "device": {
+                            "type": "string",
+                            "description": "Device type"
+                          },
+                          "discount_code": {
+                            "type": "string",
+                            "description": "Promo Code"
+                          },
+                          "financial_status": {
+                            "type": "string",
+                            "description": "Payment status"
+                          },
+                          "fulfillment_status": {
+                            "type": "string",
+                            "description": "Logistics status"
+                          },
+                          "fulfillments": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "tracking_number": {
+                                  "type": "string",
+                                  "description": "Shipment number"
+                                }
+                              }
+                            },
+                            "description": "Logistics information"
+                          },
+                          "id": {
+                            "type": "string",
+                            "description": "ID"
+                          },
+                          "line_items": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "compare_at_price": {
+                                  "type": "string",
+                                  "description": "Original price"
+                                },
+                                "fulfillment_status": {
+                                  "type": "string",
+                                  "description": "Logistics status"
+                                },
+                                "fulfillment": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "tracking_number": {
+                                        "type": "string",
+                                        "description": "Shipment number"
+                                      },
+                                      "created_at": {
+                                        "type": "string",
+                                        "description": "Creation time"
+                                      },
+                                      "tracking_company": {
+                                        "type": "string",
+                                        "description": "Logistics company"
+                                      }
+                                    }
+                                  },
+                                  "description": "Logistics information"
+                                },
+                                "id": {
+                                  "type": "string",
+                                  "description": "ID"
+                                },
+                                "image": {
+                                  "type": "object",
+                                  "properties": {
+                                    "alt": {
+                                      "type": "string",
+                                      "description": "Description"
+                                    },
+                                    "height": {
+                                      "type": "integer",
+                                      "format": "int32",
+                                      "description": "Height"
+                                    },
+                                    "path": {
+                                      "type": "string",
+                                      "description": "Path"
+                                    },
+                                    "src": {
+                                      "type": "string",
+                                      "description": "Source"
+                                    },
+                                    "width": {
+                                      "type": "integer",
+                                      "format": "int32",
+                                      "description": "Width"
+                                    }
+                                  },
+                                  "description": "Product picture"
+                                },
+                                "note": {
+                                  "type": "string",
+                                  "description": "Remark"
+                                },
+                                "options": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "name": {
+                                        "type": "string",
+                                        "description": "Specification name"
+                                      },
+                                      "value": {
+                                        "type": "string",
+                                        "description": "Specification Value"
+                                      }
+                                    }
+                                  },
+                                  "description": "Style information"
+                                },
+                                "price": {
+                                  "type": "string",
+                                  "description": "Price"
+                                },
+                                "product_handle": {
+                                  "type": "string",
+                                  "description": "Product handle"
+                                },
+                                "product_id": {
+                                  "type": "string",
+                                  "description": "Large product ID"
+                                },
+                                "product_tags": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "string"
+                                  },
+                                  "description": "Product tag"
+                                },
+                                "product_title": {
+                                  "type": "string",
+                                  "description": "Product title"
+                                },
+                                "properties": {
+                                  "type": "string",
+                                  "description": "Custom properties"
+                                },
+                                "quantity": {
+                                  "type": "integer",
+                                  "format": "int32",
+                                  "description": "Purchase quantity"
+                                },
+                                "refund_discount": {
+                                  "type": "string",
+                                  "description": "Order single refund discount"
+                                },
+                                "refund_price": {
+                                  "type": "string",
+                                  "description": "Order single refund amount"
+                                },
+                                "refund_quantity": {
+                                  "type": "integer",
+                                  "format": "int32",
+                                  "description": "Refund quantity"
+                                },
+                                "refund_tax": {
+                                  "type": "string",
+                                  "description": "Sales tax refund amount"
+                                },
+                                "refund_total": {
+                                  "type": "string",
+                                  "description": "Total refund amount"
+                                },
+                                "requires_shipping": {
+                                  "type": "boolean",
+                                  "description": "Whether logistics is required"
+                                },
+                                "sku": {
+                                  "type": "string",
+                                  "description": "SKU"
+                                },
+                                "spu": {
+                                  "type": "string",
+                                  "description": "SPU"
+                                },
+                                "taxable": {
+                                  "type": "boolean",
+                                  "description": "Whether tax calculation is required"
+                                },
+                                "total": {
+                                  "type": "string",
+                                  "description": "Lump sum"
+                                },
+                                "variant_id": {
+                                  "type": "string",
+                                  "description": "Sub-product ID"
+                                },
+                                "variant_title": {
+                                  "type": "string",
+                                  "description": "Sub-product title"
+                                },
+                                "vendor": {
+                                  "type": "string",
+                                  "description": "Supplier"
+                                },
+                                "weight": {
+                                  "type": "string",
+                                  "description": "Weight (keep 2 decimal places)"
+                                },
+                                "weight_unit": {
+                                  "type": "string",
+                                  "description": "Weight unit"
+                                },
+                                "vendor_url": {
+                                  "type": "string",
+                                  "description": "Supplier URL"
+                                },
+                                "oversold_quantity": {
+                                  "type": "integer",
+                                  "format": "int32",
+                                  "description": "Oversold quantity"
+                                },
+                                "main_currency_prices": {
+                                  "type": "object",
+                                  "properties": {
+                                    "compare_at_price": {
+                                      "type": "string",
+                                      "description": "Original price"
+                                    },
+                                    "price": {
+                                      "type": "string",
+                                      "description": "Price"
+                                    },
+                                    "total": {
+                                      "type": "string",
+                                      "description": "Total price"
+                                    },
+                                    "actual_rate": {
+                                      "type": "string",
+                                      "description": "Exchange rate"
+                                    }
+                                  },
+                                  "description": "Main market price"
+                                }
+                              }
+                            },
+                            "description": "Order product list"
+                          },
+                          "number": {
+                            "type": "string",
+                            "description": "Serial number"
+                          },
+                          "order_number": {
+                            "type": "string",
+                            "description": "Order number"
+                          },
+                          "order_total": {
+                            "type": "string",
+                            "description": "The total amount of orders"
+                          },
+                          "payment_method": {
+                            "type": "string",
+                            "description": "Payment method"
+                          },
+                          "recipient_name": {
+                            "type": "string",
+                            "description": "The recipient's name"
+                          },
+                          "sales_platform": {
+                            "type": "string",
+                            "description": "Sales channels"
+                          },
+                          "shipping_address_extra_info": {
+                            "type": "object",
+                            "additionalProperties": {}
+                          },
+                          "shipping_country": {
+                            "type": "string",
+                            "description": "Receiving country"
+                          },
+                          "shipping_email": {
+                            "type": "string",
+                            "description": "Receipt email"
+                          },
+                          "shipping_line_name": {
+                            "type": "string",
+                            "description": "Logistics plan name"
+                          },
+                          "shipping_phone": {
+                            "type": "string",
+                            "description": "Receiving phone number"
+                          },
+                          "source": {
+                            "type": "string",
+                            "description": "First visit to landing page URL"
+                          },
+                          "source_name": {
+                            "type": "string",
+                            "description": "First interaction source"
+                          },
+                          "placed_at": {
+                            "type": "string",
+                            "description": "Payment success time"
+                          },
+                          "refund_amount": {
+                            "type": "string",
+                            "description": "Refund quantity"
+                          },
+                          "post_sale_note": {
+                            "type": "string",
+                            "description": "After-sale notes"
+                          },
+                          "last_referrer_show": {
+                            "type": "string",
+                            "description": "Last interaction source"
+                          },
+                          "last_landing_url": {
+                            "type": "string",
+                            "description": "Last visit to landing page"
+                          },
+                          "payment_lines": {
+                            "type": "array",
+                            "items": {
+                              "properties": {
+                                "channel": {
+                                  "type": "string",
+                                  "description": "Payment channel"
+                                },
+                                "credit_card_number": {
+                                  "type": "string",
+                                  "description": "Last four digits of card number"
+                                },
+                                "method": {
+                                  "type": "string",
+                                  "description": "Payment method"
+                                },
+                                "name": {
+                                  "type": "string",
+                                  "description": "Name"
+                                },
+                                "trans_channel": {
+                                  "type": "string",
+                                  "description": "Transaction channels"
+                                },
+                                "trans_method": {
+                                  "type": "string",
+                                  "description": "Means of transaction"
+                                }
+                              }
+                            },
+                            "description": "Payment list"
+                          },
+                          "main_currency_prices": {
+                            "type": "object",
+                            "properties": {
+                              "order_total": {
+                                "type": "string",
+                                "description": "The total amount of orders"
+                              },
+                              "actual_rate": {
+                                "type": "string",
+                                "description": "Relative exchange rate"
+                              }
+                            },
+                            "description": "Main market price"
+                          },
+                          "shipping_line_desc": {
+                            "type": "string",
+                            "description": "Logistics solution description"
+                          },
+                          "delivery_method": {
+                            "type": "integer",
+                            "format": "int32",
+                            "description": "Delivery Method"
+                          },
+                          "shipping_tax_total": {
+                            "type": "string",
+                            "description": "Freight"
+                          },
+                          "shipping_tax_type": {
+                            "type": "integer",
+                            "format": "int32",
+                            "description": "Shipping tax type"
+                          },
+                          "all_tax_total": {
+                            "type": "string",
+                            "description": "Total sales tax"
+                          },
+                          "shop_name": {
+                            "type": "string",
+                            "description": "Store name"
+                          },
+                          "staff_contact": {
+                            "type": "string",
+                            "description": "Cashier account"
+                          },
+                          "status": {
+                            "type": "string",
+                            "description": "After-sales order status. (pending,processing,finished)"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "x-readme": {
+    "headers": [],
+    "explorer-enabled": true,
+    "proxy-enabled": true,
+    "samples-enabled": true
+  }
+}

@@ -1,12 +1,11 @@
 {
-  "Person": {
-    "type": "object",
-    "properties": {
-      "name": {
-        "type": "string"
-      },
-      "age": {
-        "type": "integer"
+  "users": {
+    "get": {
+      "summary": "Get a list of users",
+      "responses": {
+        "200": {
+          "description": "Successful response"
+        }
       }
     }
   }

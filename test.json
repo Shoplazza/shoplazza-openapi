@@ -5,21 +5,6 @@
     "version": "1.0.0"
   },
   "paths": {
-    "/persons": {
-      "get": {
-        "responses": {
-          "200": {
-            "description": "A list of persons",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "paths.json#/Person"
-                }
-              }
-            }
-          }
-        }
-      }
-    }
+    "$ref": "paths.json#/users"
   }
 }
