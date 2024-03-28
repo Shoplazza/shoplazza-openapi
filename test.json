@@ -5,6 +5,8 @@
     "version": "1.0.0"
   },
   "paths": {
-    "$ref": "paths.json#/users"
+    "/users": {
+      "$ref": "paths.json#/users"
+    }
   }
 }
